@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+	<meta charset='utf-8' />
+	<meta name='description' content='Pruebas con el modelo de cajas' />
+	<title>Pruebas con el modelo de caja</title>
+	<style>
+		body{background:lightsteelblue}
+		/*img {float:right;}*/
+		.contenedor {width:100%; border:1px solid blue;}
+		.cajainline {display:inline}
+		.cajablock{border: 1px solid blue; display: block;}
+		.cajainline-block{border: 1px solid gold; display: inline-block;}
+
+.cajamorada {background: purple; height: 100px; width:520px; }
+		.cajaestatica {background: red;width:400px;}
+		.cajarelativa {background: red;width:400px;position:relative;}
+		.cajaabsoluta {background: red;width:400px;position: absolute;}
+/*		p {float:right;}*/
+
+	</style>
+</head>
+<body>
+	<div class='cajainline'>
+		<p>Texto Texto Texto Texto<img src='cuadrado.jpg' />Texto Texto Texto Texto Texto</p>
+	</div>
+	<div class='cajablock'>
+		<p>Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto<img src='cuadrado.jpg' />Texto Texto Texto Texto Texto Texto</p>
+	</div>
+	<div class='cajainline-block'>
+		<p>holoo Texto Texto Texto Texto holoo Texto Texto Texto Texto holoo Texto<img src='cuadrado.jpg' />Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto</p>
+	</div>
+<h2>caja static</h2>
+<div class='contenedor'>
+	<div class='cajaestatica'>roja</div>
+	<div class='cajamorada'>morada</div>
+</div>
+<h2>caja relative</h2>
+<div class='contenedor'>
+	<div class='cajarelativa'>roja</div>
+	<div class='cajamorada'>morada</div>
+</div>
+<h2>caja absolute</h2>
+<div class='contenedor'>
+	<div class='cajaabsoluta'>roja</div>
+	<div class='cajamorada'>morada</div>
+</div>
+
+<h2>cajas absolute in relative</h2>
+<div class='contenedor'>
+
+	<div class='cajamorada' style='position:relative;'>
+		<div class='cajaabsoluta' style='top:60px; left:150px'>roja absolute</div>
+	</div>
+</div>
+</body>
+</html>
