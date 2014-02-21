@@ -1,42 +1,90 @@
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('fuentes/OpenSans-Regular-webfont.eot');
+    src: url('fuentes/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fuentes/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fuentes/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fuentes/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'icomejorandola';
+	src:url('fuentes/icomejorandola.eot?-ffn90a');
+	src:url('fuentes/icomejorandola.eot?#iefix-ffn90a') format('embedded-opentype'),
+		url('fuentes/icomejorandola.woff?-ffn90a') format('woff'),
+		url('fuentes/icomejorandola.ttf?-ffn90a') format('truetype'),
+		url('fuentes/icomejorandola.svg?-ffn90a#icomejorandola') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomejorandola';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lapiz:before {
+	content: "\e602";
+	margin-right: 0.8em;
+}
+.icon-estrella:before {
+	content: "\e603";
+	color: #ffbe2c;
+	margin-right: 0.4em;
+	position: relative;
+	top: .1em;
+}
+.icon-f-arriba:before {
+	content: "\e600";
+	color:#dd4f24;
+}
+.icon-f-abajo:before {
+	content: "\e601";
+	color:#dd4f24;
+}
+
 a{
 	color:#22bce0;
 }
-body
-{
+body{
 	background: #eeeeee;
-	font-family: Arial;
+	font-family: open_sansregular;
 	font-size: 16px;
 }
-footer
-{
+footer{
 	background: #22bce0;
 	color:rgba(255,255,255,0.7);
 	padding: 1em;
 	text-align: center;
 }
 
-footer p:first-child
-{
+footer p:first-child{
 /*	background: red;*/
 	margin-bottom: 0;
 }
 
-footer p:last-child
-{
+footer p:last-child{
 /*	background: blue;*/
 	margin-top: 0;
 }
-footer p:last-child:after
-{
+footer p:last-child:after{
 	content: " -";
 }
 
-footer p:last-child:before
-{
+footer p:last-child:before{
 	content: "- ";
 }
-header
-{
+header{
 	background: #344b54;
 	color: white;
 /*	margin:1em;*/
@@ -69,17 +117,34 @@ header #avatar img
 	width: 55px;
 }
 
+header #logo{
+/*
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+*/
+	border-right: 1px solid white;
+	margin-right: 0.5em;
+}
+
 header #logo img
 {
-	border-right: 1px solid white;
-	padding-right: 0.5em;
 	margin-right: 0.5em;
+	padding-right: 0.5em;
+	-webkit-transition:.5s;
 	width: 52px;
+}
+
+header #logo img:hover{
+	-webkit-transform:rotate(360deg);
 }
 
 nav
 {
 	background: #80bca3;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+	padding: 0 6em 0 0;
 	position: relative;
 }
 
@@ -102,8 +167,12 @@ nav ul li a
 	display: block;
 	padding: 0.5em;
 	text-decoration: none;
+	-webkit-transition:.3s;
 }
 
+nav ul li a:hover {
+	background: #22bce0;
+}
 nav ul #publicar_nav
 {
 	position:absolute;
@@ -117,10 +186,21 @@ nav ul #publicar_nav a
 	border-radius:5px;
 	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
 	font-style: italic;
-	padding: 0.6em 0.8em;
+	padding: 0.8em 0.5em 0.8em 2.5em;
 	text-shadow:rgba(0,0,0,0.5) 2px 2px 5px;
 }
-
+nav ul #publicar_nav a:before{
+	left: 0.5em;
+	position: absolute;
+	top: 0.7em;
+}
+nav ul #publicar_nav a:hover:before {
+/*	-webkit-transform:scale(1.2);*/
+	font-size: 20px;
+}
+aside {
+	display: none;
+}
 #contenido
 {
 	margin:1em;
@@ -197,16 +277,46 @@ nav ul #publicar_nav a
 	width:95%;
 }
 
+#contenido .item .votacion a{
+	text-decoration: none;
+}
 #contenido .item .votacion .comentarios_item,
-#contenido .item .votacion .gauardar_item
+#contenido .item .votacion .guardar_item
 {
 	float:right;
 }
 
+.leo{
+	background: red;
+	display: block;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+@media screen and (min-width:800px) {
+	#contenido{
+		overflow: hidden;
+	}
+	#contenido .item {
+		float: left;
+		width: 49%;
+	}
+	#contenido .item:nth-child(odd){
+		margin-right: 2%;
+	}
+}
 
-
-
-
+@media screen and (min-width: 1000px){
+	aside{
+		display: block;
+		float: right;
+		margin: 1em;
+		width: 20%;
+	}
+	aside video{
+		width: 100%;
+	}
+}
 
 
 
